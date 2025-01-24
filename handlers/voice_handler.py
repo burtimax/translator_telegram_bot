@@ -1,9 +1,6 @@
 from aiogram import types, Router, F
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from pathlib import Path
-import asyncio
-import aiofiles
-import os
 import requests
 import traceback
 import sys
@@ -14,8 +11,6 @@ from handlers.utils import google_translate_text
 
 router = Router()# или "tiny", "small", "medium", "large"
 translator = Translator()
-
-
 
 @router.message(F.voice)
 async def handle_voice(message: types.Message):
