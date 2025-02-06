@@ -37,7 +37,10 @@ async def handle_errors(error: ErrorEvent):
         await message.answer(
             "😔 Извините, произошла непредвиденная ошибка.\n"
             "Мы уже работаем над её устранением.\n"
-            "Пожалуйста, попробуйте позже."
+            "Пожалуйста, попробуйте позже.\n\n"
+            "😔 Sorry, an unexpected error occurred.\n"
+            "We are already working on fixing it.\n"
+            "Please try again later."
         )
         
     except Exception as e:
