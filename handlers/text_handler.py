@@ -14,7 +14,10 @@ async def send_welcome(message: types.Message):
     await message.reply(
         "Привет! Я бот-переводчик.\n"
         "Отправьте мне текст на русском или английском языке, "
-        "и я переведу его на другой язык."
+        "и я переведу его на другой язык.\n\n"
+        "Hello! I'm a translator bot.\n"
+        "Send me text in Russian or English, "
+        "and I'll translate it into another language."
     )
 
 @router.message(F.text)
@@ -38,7 +41,8 @@ async def translate_text(message: types.Message):
     except ValueError as e:
         if str(e) == 'invalid source language':
             await message.reply(
-                "Извините, я не могу перевести этот текст. Попроуйте другой текст."
+                "Извините, я не могу перевести этот текст. Попроуйте другой текст.\n\n"
+                "Sorry, I can't translate this text. Try another text."
             )
             return
         raise  # Пробрасываем остальные ValueError дальше
@@ -53,5 +57,7 @@ async def translate_text(message: types.Message):
 
         await message.reply(
             "Извините, произошла ошибка при переводе. "
-            "Пожалуйста, попробуйте позже."
+            "Пожалуйста, попробуйте позже.\n\n"
+            "Sorry, there was a translation error."
+            "Please try again later."
         ) 
